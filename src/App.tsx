@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Card } from './components/Card';
+import { Search } from './components/Search';
+import { useUser } from './hooks/useUser';
+import './App.css'
 
-function App() {
+export default function App() {
+  const { user, loadUser, isLoading, error } = useUser()
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>GitHubers</h1>
+      <Search loadUser={loadUser}/>
+      {isLoading && <div className='loading'>Procurando...</div>}
+      {error && <div className='error'>Usuário não encontrado, tente novamente.</div>}
+      {user && <Card {...user}/>}
     </div>
   );
 }
-
-export default App;

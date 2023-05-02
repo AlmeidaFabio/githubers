@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# Teste para vaga de React Developer Junior
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O objetivo deste teste é entender o candidato, sua experiência e sua capacidade de resolução de problemas com dúvidas e detalhes que serão exigidos no dia-a-dia como React Developer Junior. O teste é baseado em questionamentos e problemas a serem resolvidos.
 
-## Available Scripts
+## Como será feito o teste?
 
-In the project directory, you can run:
+O teste é dividido em 2 etapas:
 
-### `npm start`
+Questões teóricas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Projeto prático, quer seja correção de bug ou criação do mesmo.
+O candidato precisa criar um repositório próprio com a seguinte estrutura:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+No README serão respondidas as questões teóricas (pergunta e resposta), de forma organizada e explicada.
+No próprio repositório estará o projeto prático, corrigido e/ou criado.
+Após a finalização, o candidato deve enviar um e-mail para suporte@b7web.com.br com o link do repositório original (este) bem como o link do repositório pessoal com a resolução.
 
-### `npm test`
+### Questões Teóricas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. O que é autocomplete, autofocus e required nos campos de input?
 
-### `npm run build`
+   _Autocomplete: é usado para fornecer sugestões de preenchimento automático para campos de entrada, com base em dados previamente inseridos pelo usuário ou em dados coletados em outros formulários ou sistemas. Isso pode ajudar a melhorar a experiência do usuário e reduzir erros de digitação._
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    _Autofocus: é usado para definir o foco inicial em um campo de entrada quando a página é carregada, o que pode ajudar a melhorar a usabilidade e a eficiência para o usuário._
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    _Required: é usado para tornar um campo de entrada obrigatório, impedindo que o formulário seja enviado até que o usuário preencha o campo._
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Qual keyCode do botão ENTER no evento de teclado?
 
-### `npm run eject`
+   _13_
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Qual a lógica no React para, enquanto estiver carregando algo, bloquear alterações em campos?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    _Em React, é possível bloquear alterações em campos enquanto algo está sendo carregado usando uma combinação de estado e condicionais. Por exemplo, você pode usar um estado para rastrear se algo está carregando e, em seguida, condicionar a renderização do campo de entrada com base nesse estado._
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+4. Para integração com Github, o que é necessário?
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    _Para integração com o Github, é necessário criar uma conta no Github e obter uma chave de acesso pessoal (personal access token) que permitirá ao seu aplicativo se comunicar com a API do Github. Com a chave de acesso, é possível fazer solicitações (requests) de dados do Github por meio da API, como por exemplo, listar repositórios, buscar usuários, etc._
 
-## Learn More
+### Projeto prático
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Crie um sistema de busca capaz de pesquisar usuários de GITHUB e exibir as informações (e avatar) do perfil pesquisado.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Essa aplicação deve:
+
+Ter um campo principal de busca, com autofocus, em que é digitado o nome do usuário a procurar.
+Ao dar ENTER ou apertar no botão de busca, deve exibir um loading e bloquear o campo de busca.
+O resultado deve ser exibido abaixo do campo de busca.
+O design não é fator importante, contudo, a estruturação da página sim será levada em consideração.
