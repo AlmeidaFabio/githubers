@@ -24,7 +24,7 @@ export function UserContextProvider(props: UserContextProvider) {
         setError(false)
         setIsLoading(true)
 
-        const res = await fetch(`https://api.github.com/users/${userName}`)
+        const res = await fetch(`https://api.github.com/users/${userName.trim()}`)
         
         if(res.status === 404){
             setIsLoading(false)
