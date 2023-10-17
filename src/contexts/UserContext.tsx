@@ -1,8 +1,8 @@
 import { createContext, useState } from "react";
-import { UserProps } from "../types/IUser";
+import { IUser } from "../types/IUser";
 
 type UserContextTypes = {
-    user: UserProps | null;
+    user: IUser | null;
     loadUser:(userName:string) => Promise<void>;
     isLoading:boolean;
     error:boolean;
@@ -15,7 +15,7 @@ type UserContextProvider = {
 export const UserContext = createContext({} as UserContextTypes) 
 
 export function UserContextProvider(props: UserContextProvider) {
-    const [ user, setUser ] = useState<UserProps | null>(null)
+    const [ user, setUser ] = useState<IUser | null>(null)
     const [ isLoading, setIsLoading ] = useState(false)
     const [ error, setError ] = useState(false)
 
@@ -34,7 +34,7 @@ export function UserContextProvider(props: UserContextProvider) {
 
         const data = await res.json();
         const { avatar_url, login, location, followers, following } = data
-        const userData:UserProps = {
+        const userData:IUser = {
             avatar_url,
             login,
             location,
