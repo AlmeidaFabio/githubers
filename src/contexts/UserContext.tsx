@@ -1,59 +1,28 @@
-import { createContext, useState } from "react";
+import { Dispatch, ReactNode, createContext, useReducer } from "react";
 import { IUser } from "../types/IUser";
+import { UserReducer } from "../reducers/UserReducer";
+import { UserActions } from "../types/IUserActions";
 
-type UserContextTypes = {
+type UserContextProps = {
     user: IUser | null;
-    loadUser:(userName:string) => Promise<void>;
-    isLoading:boolean;
-    error:boolean;
+    dispatch: Dispatch<UserActions>;
 }
 
-type UserContextProvider = {
-    children: JSX.Element;
+type UserProviderProps = {
+    children: ReactNode;
 }
 
-export const UserContext = createContext({} as UserContextTypes) 
+export const UserContext = createContext<UserContextProps | null>(null) 
 
-export function UserContextProvider(props: UserContextProvider) {
-    const [ user, setUser ] = useState<IUser | null>(null)
-    const [ isLoading, setIsLoading ] = useState(false)
-    const [ error, setError ] = useState(false)
-
-    async function loadUser(userName:string) {
-        setUser(null)
-        setError(false)
-        setIsLoading(true)
-
-        const res = await fetch(`https://api.github.com/users/${userName.trim()}`)
-        
-        if(res.status === 404){
-            setIsLoading(false)
-            setError(true)
-            return
-        }
-
-        const data = await res.json();
-        const { avatar_url, login, location, followers, following } = data
-        const userData:IUser = {
-            avatar_url,
-            login,
-            location,
-            followers,
-            following
-        }
-        
-        setIsLoading(false)
-        setUser(userData)
-    }
-
+export function UserProvider({ children }: UserProviderProps) {
+    const [ user, dispatch ] = useReducer(UserReducer, null)
+    
     return(
         <UserContext.Provider value={{
             user,
-            loadUser,
-            isLoading,
-            error
+            dispatch
         }}>
-            { props.children }
+            { children }
         </UserContext.Provider>
     )
 }
