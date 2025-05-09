@@ -8,13 +8,20 @@ type Props = {
 export function Search({ loadUser }: Props) {
     const [isLoading, setIsLoading] = useState(false)
     const [userName, setUserName] = useState("")
+    const [error, setError] = useState<string | null>(null)
 
-    function handleSubmit(e: FormEvent) {
+    async function handleSubmit(e: FormEvent) {
         e.preventDefault()
+        setError(null)
         setIsLoading(true)
-        loadUser(userName)
-        setIsLoading(false)
-        setUserName("")
+        try {
+            await loadUser(userName)
+        } catch (err) {
+            setError('Ocorreu um erro ao buscar o usuário. Tente novamente mais tarde.')
+        } finally {
+            setIsLoading(false)
+            setUserName("")
+        }
     }
 
     function handleKeyDown(e: KeyboardEvent) {
@@ -41,6 +48,7 @@ export function Search({ loadUser }: Props) {
                     {isLoading ? 'Procurando...' : 'Procurar'}
                 </button>
             </label>
+            {error && <div className='error'>{error}</div>}
         </form>
     )
 }

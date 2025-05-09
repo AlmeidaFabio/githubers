@@ -13,7 +13,7 @@ O candidato precisa criar um repositório próprio com a seguinte estrutura:
 
 No README serão respondidas as questões teóricas (pergunta e resposta), de forma organizada e explicada.
 No próprio repositório estará o projeto prático, corrigido e/ou criado.
-Após a finalização, o candidato deve enviar um e-mail para suporte@b7web.com.br com o link do repositório original (este) bem como o link do repositório pessoal com a resolução.
+Após a finalização, o candidato deve enviar um e-mail para <suporte@b7web.com.br> com o link do repositório original (este) bem como o link do repositório pessoal com a resolução.
 
 ### Questões Teóricas
 

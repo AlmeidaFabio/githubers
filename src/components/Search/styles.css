@@ -48,3 +48,9 @@ form {
     opacity: .8;
     background: rgb(152, 159, 159);
   }
+
+.error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+}
